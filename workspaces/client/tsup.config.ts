@@ -60,7 +60,7 @@ export default defineConfig(async (): Promise<Options[]> => {
       shims: true,
       sourcemap: false,
       splitting: false,
-      target: 'chrome',
+      target: 'chrome58',
       treeshake: true,
     },
   ];

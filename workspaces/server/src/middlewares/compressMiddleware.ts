@@ -7,6 +7,7 @@ const zstdInit = ZstdInit();
 export const compressMiddleware = createMiddleware(async (c, next) => {
   await next();
   const { ZstdStream } = await zstdInit;
+  console.time(`${c.req.url} compress`);
 
   const accept = encoding(c.req.header('X-Accept-Encoding'), ['zstd']);
 
@@ -30,4 +31,5 @@ export const compressMiddleware = createMiddleware(async (c, next) => {
       break;
     }
   }
+  console.timeEnd(`${c.req.url} compress`);
 });
