@@ -19,9 +19,9 @@ import { CoverSection } from './internal/CoverSection';
 
 const TopPage: React.FC = () => {
   const todayStr = getDayOfWeekStr(moment());
-  // const { data: release } = useRelease({ params: { dayOfWeek: todayStr } });
+  const { data: release } = useRelease({ params: { dayOfWeek: todayStr } });
   const { data: featureList } = useFeatureList({ query: {} });
-  // const { data: rankingList } = useRankingList({ query: {} });
+  const { data: rankingList } = useRankingList({ query: {} });
 
   const pickupA11yId = useId();
   const rankingA11yId = useId();
@@ -48,7 +48,7 @@ const TopPage: React.FC = () => {
         </Box>
 
         <Spacer height={Space * 2} />
-{/* 
+
         <Box aria-labelledby={rankingA11yId} as="section" maxWidth="100%" width="100%">
           <Text as="h2" color={Color.MONO_100} id={rankingA11yId} typography={Typography.NORMAL20} weight="bold">
             ランキング
@@ -61,10 +61,10 @@ const TopPage: React.FC = () => {
               ))}
             </Flex>
           </Box>
-        </Box> */}
+        </Box>
 
         <Spacer height={Space * 2} />
-{/* 
+
         <Box aria-labelledby={todayA11yId} as="section" maxWidth="100%" width="100%">
           <Text as="h2" color={Color.MONO_100} id={todayA11yId} typography={Typography.NORMAL20} weight="bold">
             本日更新
@@ -77,7 +77,7 @@ const TopPage: React.FC = () => {
               ))}
             </Flex>
           </Box>
-        </Box> */}
+        </Box>
       </Box>
     </Flex>
   );
