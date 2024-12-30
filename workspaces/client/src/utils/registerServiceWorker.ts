@@ -1,4 +1,9 @@
 export async function registerServiceWorker() {
+  await navigator.serviceWorker.getRegistrations().then((registrations) => {
+    for (const registration of registrations) {
+      registration.unregister();
+    }
+  });
   const registration = await navigator.serviceWorker
     .register('/serviceworker.global.js', { updateViaCache: 'none' })
     .then(() => navigator.serviceWorker.ready);
